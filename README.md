@@ -13,9 +13,9 @@ python3 ./main.py
 
 It will generate a `txt` file and a `m3u8` file, you can use `-f/--file` option to load `txt` file if you want to regenerate the`M3U8`file.
 
-After that, checkout the `m3u8` file generated and correct the `Unable to find` file directory.
+After that, checkout the `m3u8` file and correct the `Unable to find` file directory.
 
-The `ncm` file and "Unabel to find directory" file can't be play in Music player.
+The `ncm` file and `Unabel to find directory` file can't be play in Music player.
 
 Then, copy both `CloudMusic` directory and `M3U8` file into the root directory of your Walkman Music Player.
 
@@ -45,7 +45,7 @@ python3 ./main.py
 
 这将会生成一个`txt`文件和一个`m3u8`文件，如果你需要重新生成`m3u8`文件，你可以指定`-f/--file`参数来加载之前生成的`txt`文件。
 
-然后检查一下生成的M3U8文件是否正确，将里面`Unable to find`的文件目录替换为正确的文件目录。
+然后检查一下生成的M3U8文件是否正确，搜索关键字`Unable`将不正确的文件目录更改为正确的文件目录。
 
 `ncm`文件和那些目录不正确的文件将无法被播放器识别播放。
 
@@ -53,7 +53,7 @@ python3 ./main.py
 
 ## 其他：
 
-1. 提前将歌单中的全部歌曲下载至本地
+1. 提前将歌单中的全部歌曲下载至本地。
 
 2. 把`*.ncm`歌曲换成未加密的`mp3/flac`的文件。
 

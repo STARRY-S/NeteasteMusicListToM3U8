@@ -66,7 +66,11 @@ def MakeM3U8(MusicList):
         list = list + SearchFile(MusicList[i]) + "\n"
 
     filename = MusicList[0] + ".M3U8"
-    file = open(filename, 'w')
+    try:
+        file = open(filename, mode='w')
+    except:
+        print("Error Unable to open file: ", filename)
+        exit(1)
     file.write(list)
     file.close()
     print("Successfully write your music list into {}".format(filename))
