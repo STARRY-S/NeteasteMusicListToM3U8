@@ -1,38 +1,14 @@
 # Convert Neteaste Music Playlist to M3U8 file
 
-## Usage:
+![](images/1.jpg)
 
-The default download directory of Neteaste Music is `~/Music/CloudMusic`.
+> 2020年6月补充： 因为网易不知啥时候更新了网页版，获取播放列表只能依靠cookie登录，且只能获取你自己创建的播放列表。
 
-```
-sudo pip3 install requests
-git clone https://github.com/STARRY-S/NeteasteMusicListToM3U8.git
-cp ./NeteasteMusicListToM3U8/main.py ~/Music && cd ~/Music
-python3 ./main.py
-```
+结合已下载好的本地音乐导出网易云音乐的歌单为m3u8格式的播放列表文件。
 
-It will generate a `txt` file and a `m3u8` file, you can use `-f/--file` option to load `txt` file if you want to regenerate the`M3U8`file.
+可用于播放列表的备份和迁移。
 
-After that, checkout the `m3u8` file and correct the `Unable to find` file directory.
-
-The `ncm` file and `Unabel to find directory` file can't be play in Music player.
-
-Then, copy both `CloudMusic` directory and `M3U8` file into the root directory of your Walkman Music Player.
-
-Enjoy.
-
-## Others:
-
-1. Make sure you've downloaded all music files in your music list.
-
-2. Replace `*.ncm` file to `mp3/flac` file before execute this program.
-
-3. Make sure you have a good internet connection.
-
-# 简体中文：
-使用播放列表id导出网易云音乐的歌单为M3U8文件
-
-## 使用：
+## Usage：
 
 网易云音乐的默认下载地址为`~/Music/CloudMusic`。
 
@@ -40,21 +16,30 @@ Enjoy.
 sudo pip3 install requests
 git clone https://github.com/STARRY-S/NeteasteMusicListToM3U8.git
 cp ./NeteasteMusicListToM3U8/main.py ~/Music && cd ~/Music
-python3 ./main.py
 ```
 
-这将会生成一个`txt`文件和一个`m3u8`文件，如果你需要重新生成`m3u8`文件，你可以指定`-f/--file`参数来加载之前生成的`txt`文件。
+浏览器打开[网易云音乐](https://music.163.com)并登录后打开需要转换的播放列表，按F12选择Network,刷新页面后找到登录后的cookie，复制。
+
+![](images/2.jpg)
+
+编辑`main.py`，粘贴复制的cookie。
+
+ **为了帐号安全，不要将你的cookie发布到网上告诉其他人**
+
+运行`python3 main.py`, 这将会生成一个`txt`文件和一个`m3u8`文件，如果你需要再次重新生成`m3u8`文件，你可以指定`-f/--file`参数选择已生成的`txt`文本文件来加载之前生成的`txt`文件以节省网上抓包的时间。
 
 然后检查一下生成的M3U8文件是否正确，搜索关键字`Unable`将不正确的文件目录更改为正确的文件目录。
 
-`ncm`文件和那些目录不正确的文件将无法被播放器识别播放。
+ **`ncm`文件和那些目录不正确的文件将无法被播放器识别播放。**
 
-最后将生成的`m3u8`文件和`CloudMusic`文件夹一同复制到你的Walkman播放器/内存卡根目录中。
+最后将生成的`m3u8`文件连同你的本地音乐`CloudMusic`文件夹一同复制到你的Walkman播放器/内存卡根目录中，要确保不要修改本地音乐文件路径。
 
 ## 其他：
 
 1. 提前将歌单中的全部歌曲下载至本地。
 
-2. 把`*.ncm`歌曲换成未加密的`mp3/flac`的文件。
+2. 把`*.ncm`歌曲换成文件名相同且未加密的`mp3/flac`的文件。
 
 3. 确保在网络连接正常的情况下运行本程序。
+
+4. 能力有限，程序写得简陋，勉强够用，有更好的意见/建议欢迎提issue。
